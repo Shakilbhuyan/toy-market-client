@@ -20,27 +20,39 @@ const Register = () => {
             toast.error("Please Atlest 6 charater");
             return;
         }
-        createUser(email, password)
-            .then((result) => {
-                const createdUser = result.user;
+        createUser(email, password, name, photo)
+            .then(async (result) => {
                 form.reset();
                 toast.success('Successfully Registered')
             })
             .catch((error) => {
+                console.error(error);
                 toast.error(`${error}`)
             })
     };
    
     return (
         <div>
-            <div style={{ boxShadow: '0px 0px 5px rgba(255, 0, 0, 0.5)' }} className="mx-auto w-50  mt-4 p-4">
-                <h3>Please Login</h3>
+            <div className='max-w-lg mx-auto my-8'>
+                <h3 className='mx-auto text-blue-950 font-bold'>Please Regiser</h3>
                 <form onSubmit={handleRegister}>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" name="name" placeholder="Name" className="input input-bordered" />
+                    </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
                         <input type="text" name="email" placeholder="email" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">PhotoURL</span>
+                        </label>
+                        <input type="text" name="photo" placeholder="Photo" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -50,9 +62,9 @@ const Register = () => {
                         
                     </div>
                     <div className="form-control mt-6">
-                        <input type="submit" value="Sign Up" />
+                        <input type="submit" className='btn btn-primary' value="Sign Up" />
                     </div>
-                    <label className="label">
+                    <label >
                            Already Registerd? <Link to="/login" className="label-text-alt link link-hover">Sign In</Link>
                         </label>
                 </form>
