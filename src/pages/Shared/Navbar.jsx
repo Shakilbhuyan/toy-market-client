@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../../public/download.jpg'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -29,7 +28,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
-                    <img src={logo} className='h-24 w-24 rounded-lg' alt="" />
+                    <img src="/download.jpg" className='h-24 w-24 rounded-lg' alt="" />
                     <a className="btn btn-ghost normal-case text-xl">Star Worriors</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

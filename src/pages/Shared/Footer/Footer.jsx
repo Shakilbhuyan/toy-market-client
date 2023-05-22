@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../../../public/download.jpg'
 import { FaFacebook, FaLinkedinIn , FaInstagram} from 'react-icons/fa';
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap items-center justify-center">
                     <div className="w-full md:w-1/4 lg:w-1/6">
-                        <img src={logo} alt="Logo" className="h-20" />
+                        <img src="/download.jpg" alt="Logo" className="h-20" />
                     </div>
                     <div className="w-full md:w-1/2 lg:w-2/3 text-center mt-4 md:mt-0">
                         <p className="text-4xl">Star Warriors</p>
