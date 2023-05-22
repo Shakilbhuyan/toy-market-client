@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import router from './Routes/Router.jsx';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 
 
