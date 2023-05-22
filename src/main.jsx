@@ -10,12 +10,15 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import 'react-tabs/style/react-tabs.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import AuthProvider from './Provider/AuthProvider.jsx';
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+    <RouterProvider router={router} />
      <ToastContainer />
+    </AuthProvider>
   </React.StrictMode>,
 )
