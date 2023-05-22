@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SubcategoryOne from './SubcategoryOne/SubcategoryOne';
 import SubcategoryTwo from './SubcategoryTwo/SubcategoryTwo';
+import SubcategoryThree from './SubcategoryThree/SubcategoryThree';
 
 const SubcategoryTab = () => {
     const [toies, setToies] = useState([]);
@@ -14,7 +15,7 @@ const SubcategoryTab = () => {
     const subTwo = toies.filter(toy=> toy.categoryId === 2)
     const subThree = toies.filter(toy=> toy.categoryId === 3)
     return (
-        <div className='p-10 bg-blue-950 text-yellow-50'>
+        <div className='p-10 bg-blue-900 text-yellow-50'>
             <h1 className='text-4xl text-center'>Category</h1>
             <Tabs>
                 <TabList>
@@ -44,7 +45,14 @@ const SubcategoryTab = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 p-4'>
+                    {
+                     subThree.map(subOne=><SubcategoryThree
+                        key={subOne._id}
+                        subOne={subOne}
+                     ></SubcategoryThree>)
+                    }
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>
