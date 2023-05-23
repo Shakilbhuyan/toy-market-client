@@ -20,9 +20,9 @@ const AddToy = () => {
          fetch('http://localhost:5000/addtoy',{
             method: 'POST',
             headers:{
-                'content-type': 'application/json'
+                "Content-Type": "application/json",
             },
-            body:JSON.stringify(addToy)
+            body: JSON.stringify(addToy),
          })
          .then(res => res.json())
          .then(data=>{

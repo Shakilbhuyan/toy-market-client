@@ -6,7 +6,7 @@ const AllToyes = () => {
     useEffect(() => {
         fetch('http://localhost:5000/alltoy')
             .then(res => res.json())
-            .then(data => setToyes(data).slice(0,20))
+            .then(data => setToyes(data))
     }, []);
     return (
         <div className='p-1'>
