@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Mytoy = ({ toy, setMyToys, myToys }) => {
@@ -60,7 +61,7 @@ const Mytoy = ({ toy, setMyToys, myToys }) => {
                 </td>
                 <td>{quantity}</td>
                 <th>
-                    <button className="btn  btn-primary"> Update</button>
+                    <button className="btn  btn-primary"> <Link to={`/alltoy/${_id}`}>View Details</Link></button>
                 </th>
             </tr>
         </>

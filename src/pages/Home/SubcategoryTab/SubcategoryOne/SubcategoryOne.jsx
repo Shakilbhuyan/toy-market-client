@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaStar} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SubcategoryOne = ({ subOne }) => {
 
-    const { name, price, rating, img } = subOne;
+    const {_id,  name, price, rating, img } = subOne;
 
 
     return (
@@ -16,7 +17,7 @@ const SubcategoryOne = ({ subOne }) => {
                 <div className='flex  items-center'>Rating:{rating}<FaStar></FaStar>
                 </div>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                    <button className="btn btn-primary"><Link to={`/alltoy/${_id}`}>View Details</Link></button>
                 </div>
             </div>
         </div>
