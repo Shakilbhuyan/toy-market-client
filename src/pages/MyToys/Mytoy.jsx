@@ -1,13 +1,47 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
-const Mytoy = ({ toy }) => {
-    const { seller, name, subcategory, price, quantity } = toy;
+const Mytoy = ({ toy, setMyToys, myToys }) => {
+    const { _id, seller, name, subcategory, price, quantity } = toy;
+
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/toys/${_id}`, {
+                    method: 'DELETE',
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            const remaining = myToys.filter(cof =>cof._id !== _id)
+                            setMyToys(remaining)
+                        }
+                    })
+            }
+        })
+    }
     return (
         <>
             <tr className='mb-2 bg-slate-500'>
                 <th>
                     <label>
-                        <button className="btn btn-circle btn-outline">
+                        <button onClick={()=>handleDelete(_id)} className="btn btn-circle btn-outline">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                         </button>
                     </label>
