@@ -19,7 +19,21 @@ const AddToy = () => {
 
          const addToy = {name, selleremail, sellername, subcategory, price, rating, photoUrl, description};
          console.log(addToy)
-       
+       fetch('http://localhost:5000/addtoy',{
+        method:'POST',
+        headers :{
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(addToy)
+       })
+       .then(res => res.json())
+       .then(data => {
+        console.log(data)
+        if(data.insertedId){
+            toast.success('Toy Added Successfully')
+        }
+        
+       })
     } 
     return (
         <div className='max-w-lg mx-auto p-5'>
