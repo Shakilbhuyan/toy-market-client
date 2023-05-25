@@ -4,6 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToy = () => {
     const {user} = useContext(AuthContext);
+
     const handleSubmit = event =>{
          event.preventDefault();
          const form = event.target;
@@ -16,19 +17,9 @@ const AddToy = () => {
          const photoUrl = form.photo.value;
          const description = form.description.value;
 
-         const addToy = {name, selleremail, sellername, subcategory, price, rating, photoUrl, description}
-         fetch('http://localhost:5000/addtoy',{
-            method: 'POST',
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(addToy),
-         })
-         .then(res => res.json())
-         .then(data=>{
-            toast.success('Toy added Successfully')
-            form.reset()
-         })
+         const addToy = {name, selleremail, sellername, subcategory, price, rating, photoUrl, description};
+         console.log(addToy)
+       
     } 
     return (
         <div className='max-w-lg mx-auto p-5'>
