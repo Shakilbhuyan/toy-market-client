@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
       path:'/alltoy/:_id',
       element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/alltoy/${params._id}`)
+      loader:({params})=>fetch(`https://toy-market-server-shakilbhuyan.vercel.app/alltoy/${params._id}`)
       },
       {
         path: '/login',

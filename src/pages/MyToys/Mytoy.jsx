@@ -18,7 +18,7 @@ const Mytoy = ({ toy, setMyToys, myToys }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/toys/${_id}`, {
+                fetch(`https://toy-market-server-shakilbhuyan.vercel.app/toys/${_id}`, {
                     method: 'DELETE',
 
                 })
